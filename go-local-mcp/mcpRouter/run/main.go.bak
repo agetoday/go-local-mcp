@@ -1,0 +1,16 @@
+package main
+
+import (
+	"fmt"
+	"gocode/go-local-mcp/mcpTools"
+)
+
+func main() {
+
+	dirPath := "D:\\项目\\扬州攻防"
+	data, readErr := mcpTools.ProcessFiles(dirPath)
+	if readErr != nil {
+		fmt.Println(readErr)
+	}
+	fmt.Println(data)
+}
