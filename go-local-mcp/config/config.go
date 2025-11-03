@@ -4,18 +4,12 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"github.com/joho/godotenv"
 )
 
 // 日志配置
 func init() {
 	rLog()
 	log.Println("Starting config initialization...")
-	if err := godotenv.Load(".env"); err != nil {
-		log.Printf("Failed to load .env file: %v", err)
-	}
-	log.Println("Config initialization complete.")
 
 }
 

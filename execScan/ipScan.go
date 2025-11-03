@@ -1,4 +1,4 @@
-package main
+package execScan
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func main() {
+func IpScan() {
 	// 从.env加载配置
 
 	inputFile := os.Getenv("INPUT_FILE")
@@ -59,8 +59,7 @@ func main() {
 		var resultWriter *os.File
 		if outputFile != "" {
 			dateStamp := time.Now().Format("20060102")
-			timestamp := time.Now().Unix()
-			filename := fmt.Sprintf("%d_%s.txt", timestamp, ip)
+			filename := ("portscan_results.txt")
 			fmt.Printf("Creating output file: %s in directory: %s\n",
 				filename, internal.GetCurrentDirectory())
 			var err error

@@ -14,3 +14,7 @@ func main() {
 	}
 	fmt.Println(data)
 }
+
+
+ git config --global user.email "807162775@qq.com"
+ git config --global user.name "ivan"

@@ -30,7 +30,7 @@ func ScanIP(ip string, start, end, workers int, timeout time.Duration, resultWri
 	go func() {
 		for port := range results {
 			openPorts = append(openPorts, port)
-			msg := fmt.Sprintf("%s:%d is open\n", ip, port)
+			msg := fmt.Sprintf("http://%s:%d ,\n", ip, port)
 			fmt.Print(msg)
 			if resultWriter != nil {
 				resultWriter.WriteString(msg)
@@ -90,4 +90,3 @@ func ScanIP(ip string, start, end, workers int, timeout time.Duration, resultWri
 		fmt.Println("\nNmap service detection completed")
 	}
 }
-

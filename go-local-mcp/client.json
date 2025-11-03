@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "server1": {
+      "name": "server1",
+      "command": "go run ",
+      "args": ["go run","D:\\gocode\\go-local-mcp\\main.go"],
+      "isOpen": true
+    }
+  }
+} 

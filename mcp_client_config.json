@@ -1,0 +1,23 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 8080,
+    "ssl": false
+  },
+  "authentication": {
+    "type": "basic",
+    "username": "user",
+    "password": "pass"
+  },
+  "connection": {
+    "timeout": 30,
+    "retry": {
+      "max_attempts": 3,
+      "interval": 5
+    }
+  },
+  "logging": {
+    "level": "info",
+    "path": "./logs/mcp_client.log"
+  }
+}
