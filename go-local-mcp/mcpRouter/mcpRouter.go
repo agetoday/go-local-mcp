@@ -13,7 +13,7 @@ type MCPServer struct {
 
 func MakeServer() *server.MCPServer {
 	mcpServer := server.NewMCPServer(
-		"in-mcp-server",
+		"local-mcp-server",
 		"1.0.0",
 		server.WithToolCapabilities(true),
 	)
@@ -32,6 +32,10 @@ func NewMCPServer() *MCPServer {
 		mcp.WithDescription("Read Excel file"),
 		mcp.WithString("dirPath", mcp.Required(), mcp.Description("Directory path to Excel file")),
 	)
+	create_Excel := mcp.NewTool("createExcel",
+		mcp.WithDescription("Create Excel file"),
+		mcp.WithArray("content_array", mcp.Required(), mcp.Description("write into Excel file")),
+	)
 	writer_tool := mcp.NewTool("writer",
 		mcp.WithDescription("Analyze and suggest improvements for text content"),
 		mcp.WithString("content", mcp.Required(), mcp.Description("Text content to analyze")),
@@ -42,10 +46,19 @@ func NewMCPServer() *MCPServer {
 		mcp.WithString("content", mcp.Required(), mcp.Description("Content to include in the Word document")),
 	)
 
+	video_download := mcp.NewTool("videoDownload",
+		mcp.WithDescription("Download videos from YouTube or Instagram"),
+		mcp.WithString("url", mcp.Required(), mcp.Description("Video URL to download")),
+		mcp.WithString("platform", mcp.Required(), mcp.Description("Platform: youtube or instagram")),
+		mcp.WithString("resolution", mcp.Required(), mcp.Description("Video resolution (e.g. 1080)")),
+	)
+
 	mcpServer.AddTool(weather, weatherHandler)
 	mcpServer.AddTool(read_Excel, readExcelHandler)
+	mcpServer.AddTool(create_Excel, createExcelHandler)
 	mcpServer.AddTool(writer_tool, writerHandler)
 	mcpServer.AddTool(create_wordprocessor, createWordProcessorHandler)
+	mcpServer.AddTool(video_download, videoDownloadHandler)
 	return &MCPServer{server: mcpServer}
 }
 

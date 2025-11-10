@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "gocode/go-local-mcp/config"
 	"gocode/go-local-mcp/mcpRouter"
 	"log"
 )

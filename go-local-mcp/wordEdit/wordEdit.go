@@ -117,6 +117,7 @@ doc.Save("example.docx")`
 type NewCreatedDoc struct {
 	doc *document.Document
 }
+
 func NewDoc() *NewCreatedDoc {
 	new := document.New()
 	return &NewCreatedDoc{doc: new}
@@ -133,8 +134,7 @@ func (doc *NewCreatedDoc) GetStyleManager() *style.StyleManager {
 
 // New 创建一个新的文档对象
 func New() *NewCreatedDoc {
-	doc := document.New()
-	return &NewCreatedDoc{doc: doc}
+	return &NewCreatedDoc{doc: document.New()}
 }
 
 // SaveWord 保存文档到指定路径

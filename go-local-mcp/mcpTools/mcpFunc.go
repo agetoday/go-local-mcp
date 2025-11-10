@@ -49,10 +49,7 @@ func readExcelFile(filePath string) ([]string, error) {
 	// 读取第一个工作表
 	sheet := xlFile[0] // 直接使用返回的切片
 	for _, row := range sheet {
-		var rowData []string
-		for _, cell := range row {
-			rowData = append(rowData, cell)
-		}
+		rowData := append([]string(nil), row...) // 将row中的所有元素一次性添加到rowData中
 		results = append(results, strings.Join(rowData, ","))
 	}
 	return results, nil
